@@ -57,7 +57,7 @@ root = tk.Tk()
 root.title("环境配置工具")
 
 # 设置固定窗口大小
-root.geometry("400x400")
+root.geometry("400x600")
 root.resizable(False, False)  # 禁止调整大小
 
 # 设置默认安装路径
