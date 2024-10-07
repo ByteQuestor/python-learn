@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox, filedialog, StringVar, ttk
 import subprocess
 import sys
+import os
 
 # 检查并安装所需依赖
 def install_dependencies():
@@ -9,6 +10,31 @@ def install_dependencies():
         import requests
     except ImportError:
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'requests'])
+
+# 检查并安装 Chocolatey
+def check_and_install_chocolatey():
+    try:
+        result = subprocess.run(["choco", "--version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if result.returncode == 0:
+            messagebox.showinfo("信息", "Chocolatey 已成功安装。")
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        messagebox.showinfo("信息", "未检测到 Chocolatey，正在安装...")
+        try:
+            # 设置代理
+            proxies = {
+                'http': 'http://127.0.0.1:13038',
+                'https': 'http://127.0.0.1:13038',
+            }
+            os.environ['HTTP_PROXY'] = proxies['http']
+            os.environ['HTTPS_PROXY'] = proxies['https']
+            # 安装 Chocolatey
+            subprocess.check_call(['powershell', '-Command', 
+                r'& {Set-ExecutionPolicy Bypass -Scope Process -Force; '
+                r'[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; '
+                r'iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))}'])
+            messagebox.showinfo("安装成功", "Chocolatey 安装成功！")
+        except Exception as e:
+            messagebox.showerror("安装失败", f"Chocolatey 安装失败：\n{str(e)}")
 
 # 自检功能
 def check_python_env():
@@ -29,9 +55,12 @@ def check_python_env():
 # 通用安装函数
 def install_software(software_name, install_command):
     try:
+        print(f"正在执行命令: {' '.join(install_command)}")
         result = subprocess.run(install_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        print(result.stdout.decode())
         messagebox.showinfo("安装成功", f"{software_name} 安装成功！")
     except subprocess.CalledProcessError as e:
+        print(e.stderr.decode())
         messagebox.showerror("安装失败", f"{software_name} 安装失败：\n{e.stderr.decode()}")
 
 # 安装软件的回调函数
@@ -41,7 +70,17 @@ def install_with_version(software_name, version_var):
         messagebox.showerror("错误", "请选择一个版本！")
         return
 
-    install_command = ["choco", "install", software_name.lower(), "-y", "--version", selected_version, "--params", f"INSTALLDIR={install_path.get()}"]
+    install_command = [
+        r"C:\ProgramData\chocolatey\bin\choco.exe",
+        "install",
+        software_name.lower(),
+        "-y",
+        "--version",
+        selected_version,
+        "--params",
+        f"INSTALLDIR={install_path.get()}"
+    ]
+
     install_software(software_name, install_command)
 
 # 创建下拉菜单
@@ -109,6 +148,9 @@ check_env_button.pack(pady=10)
 
 # 安装依赖
 install_dependencies()
+
+# 检查并安装 Chocolatey
+check_and_install_chocolatey()
 
 # 运行主循环
 root.mainloop()
