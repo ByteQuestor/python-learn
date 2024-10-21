@@ -84,3 +84,9 @@ Host Python
 ```
 
 然后`ctrl + shift + p`，然后搜索`Connect to`，输入我们的`Python`，回车，按照提示操作即可连接到远程Docker
+
+打包离线镜像（因为暂时没有`harbor`仓库）
+
+```shell
+docker save -o python39-dev_v1.tar python39_dev:v1
+```
