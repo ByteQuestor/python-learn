@@ -91,14 +91,24 @@ Host Python
 docker save -o python39-dev_v1.tar python39_dev:v1
 ```
 
+# 注意事项
 
+连接上以后，会提示安装一个`Python`插件，**不要安装这个插件**
 
-特别注意：
+这个插件默认使用的解释器版本是`python3.11`，这样会导致包无法导入
 
-连接上以后，需要安装一个`Python`插件，这个插件默认使用的解释器版本是`python3.11`，这样会导致包无法导入
+（会没有运行按钮，直接`python demo01.py`运行，或者手工安装下面这个插件`Python Debugger`，即可有运行按钮）
+
+![运行按钮](../img/pythonDockerDev/4.png)
 
 解决方法：
+
+如果已经安装了插件无法导入包，以下是解决方法：（也可以直接禁用，只留一个`Python Debugger`即可）
 
 `ctrl + shift + p`，输入`python`，选择解释器`python3.9`
 
 ![3](../img/pythonDockerDev/3.png)
+
+# 关于运行的服务
+
+比如要写`RESTful API`，但是运行是在容器的`5000`端口，所以如果要看效果，还需要转发一下
