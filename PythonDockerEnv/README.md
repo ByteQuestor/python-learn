@@ -90,3 +90,15 @@ Host Python
 ```shell
 docker save -o python39-dev_v1.tar python39_dev:v1
 ```
+
+
+
+特别注意：
+
+连接上以后，需要安装一个`Python`插件，这个插件默认使用的解释器版本是`python3.11`，这样会导致包无法导入
+
+解决方法：
+
+`ctrl + shift + p`，输入`python`，选择解释器`python3.9`
+
+![3](../img/pythonDockerDev/3.png)
