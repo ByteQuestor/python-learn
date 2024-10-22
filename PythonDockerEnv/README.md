@@ -1,6 +1,6 @@
 # 关于构建Python3远程开发
 
-
+> 初始版本MD5值：`cef3bb682129a1a8ff1cf97530964f89`
 
 ```dockerfile
 # 使用官方的 Python 3.9 镜像
