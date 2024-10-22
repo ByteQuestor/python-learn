@@ -58,10 +58,10 @@ ssh python-dev
 
 > 图示全过程
 
-![allinone](E:\User\wzy\github\python-learn\img\noPassword\allinone.png)
+![allinone](../python-learn/img/noPassword/allinone.png)
 
 然后在`/root/.ssh/authorized_keys`下面创建
 
-![allinone](E:\User\wzy\github\python-learn\img\noPassword\4.png)
+![allinone](../python-learn/img/noPassword/4.png)
 
 # Python学习记录
