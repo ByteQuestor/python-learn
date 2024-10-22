@@ -95,6 +95,8 @@ docker save -o python39-dev_v1.tar python39_dev:v1
 
 连接上以后，会提示安装一个`Python`插件，**不要安装这个插件**
 
+![运行按钮](../img/pythonDockerDev/no.png)
+
 这个插件默认使用的解释器版本是`python3.11`，这样会导致包无法导入
 
 （会没有运行按钮，直接`python demo01.py`运行，或者手工安装下面这个插件`Python Debugger`，即可有运行按钮）

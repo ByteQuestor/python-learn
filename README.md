@@ -29,13 +29,30 @@ ssh-keygen -t rsa -b 4096 -C "$email"
 cat ~/.ssh/id_rsa.pub
 ```
 
-进入容器，反正就是要连哪个配置哪个，在以下路径，如果没有创建一个，将密钥粘贴进去
+进入容器，反正就是要连哪个配置哪个，在以下路径，如果没有创建一个，**将密钥粘贴进去**
 
 ```shell
 /root/.ssh/authorized_keys
 ```
 
-添加以下内容：（之前生成的时候提示了路径）
+> 如果是手工创建的文件，则需要做以下操作
+
+---
+
+**检查文件权限**，权限问题是导致 SSH 密钥认证失败的常见原因之一，如果在一开始没有，手动创建的`/root/.ssh/authorized_keys`，需要设置权限
+在远程服务器上，`~/.ssh`目录的权限应该是700，`~/.ssh/authorized_keys`文件的权限应该是600。
+可以使用以下命令来检查和设置权限：
+
+所以需要进行以下操作：
+
++ 对于~/.ssh目录：`chmod 700 ~/.ssh`
++ 对于`~/.ssh/authorized_keys`文件：`chmod 600 ~/.ssh/authorized_keys`
+
+**如果权限设置不正确，SSH 服务可能会忽略这些文件，从而导致密钥认证失败。**
+
+---
+
+在`VSCode`添加以下内容：（之前生成的时候提示了路径）
 
 ```ini
 Host python-dev
@@ -63,5 +80,9 @@ ssh python-dev
 然后在`/root/.ssh/authorized_keys`下面创建
 
 ![allinone](./img/noPassword/4.png)
+
+然后记得去容器里同样的位置添加
+
+
 
 # Python学习记录
