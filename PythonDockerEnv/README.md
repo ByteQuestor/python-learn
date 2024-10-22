@@ -111,4 +111,8 @@ docker save -o python39-dev_v1.tar python39_dev:v1
 
 # 关于运行的服务
 
-比如要写`RESTful API`，但是运行是在容器的`5000`端口，所以如果要看效果，还需要转发一下
+比如要写`RESTful API`，运行是在容器的`5000`端口，运行时VSCode会提示一个在浏览器打开，这样可以通过本机看效果
+
+![3](../img/pythonDockerDev/7.png)
+
+![3](../img/pythonDockerDev/6.png)
