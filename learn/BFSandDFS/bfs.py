@@ -7,13 +7,12 @@ def bfs_crack_password():
         password = queue.pop(0)
         step += 1  # 这个只是为了记录回显的
         print(f"第{step}步：正在尝试密码 {password}")
-
+        # 结束条件
         if password == "999":
             print(f"密码破解成功，正确密码是 {password}")
+            print(queue)
             break
-
         visited.add(password)
-
         for i in range(len(password)):
             for j in range(10):
                 new_digit = int(password[i]) + j

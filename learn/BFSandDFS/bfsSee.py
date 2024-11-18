@@ -38,6 +38,7 @@ def bfs_crack_password_animation():
 
         if password == "999":
             break
+        print(f"{queue}\n")
 
     return step_data
 
