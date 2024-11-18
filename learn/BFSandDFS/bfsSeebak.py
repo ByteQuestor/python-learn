@@ -17,11 +17,12 @@ def bfs_crack_password_animation():
         local_neighbors = []
 
         for i in range(len(password)):
-            for delta in [-1, 1]:  # 对每个数位进行加1或减1操作
-                current_digit = int(password[i])
-                new_digit = (current_digit + delta) % 10
-                new_password = password[:i] + str(new_digit) + password[i + 1:]
+            for j in range(10):
+                new_digit = int(password[i]) + j
+                if new_digit > 9:
+                    new_digit -= 10
 
+                new_password = password[:i] + str(new_digit) + password[i + 1:]
                 if new_password not in visited and new_password not in queue:
                     queue.append(new_password)
                     password_graph.add_edge(password, new_password)
@@ -37,6 +38,7 @@ def bfs_crack_password_animation():
 
         if password == "999":
             break
+        print(f"{queue}\n")
 
     return step_data
 

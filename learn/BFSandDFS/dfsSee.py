@@ -34,7 +34,7 @@ def draw_graph(current_node=None):
         positions = nx.shell_layout(graph)
         # 设置节点颜色
         node_colors = [
-            "red" if node == current_node else get_node_color(node) for node in graph
+            "green" if node == current_node else get_node_color(node) for node in graph
         ]
         nx.draw(
             graph,
