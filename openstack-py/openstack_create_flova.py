@@ -52,5 +52,5 @@ head = {
 }
 print(openstack_token)
 flavor_api = flavor_api(head, "http://192.168.100.10:8774/v2.1/flavors")
-test = flavor_api.create_flavor(flavor_name="test", ram=1024, vcpus=1, disk=20, id=12345)
+test = flavor_api.create_flavor(flavor_name="wzy", ram=1024, vcpus=1, disk=20, id=456789)
 print(f"云主机创建成功{test}")
