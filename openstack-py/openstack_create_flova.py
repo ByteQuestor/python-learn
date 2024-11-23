@@ -32,7 +32,6 @@ class flavor_api:
         self.resUrl = resUrl
 
     def create_flavor(self, flavor_name: str, ram, vcpus, disk, id):
-        self.headers["Content-Type"] = "application/json"
         body = {
             "flavor": {
                 "name": flavor_name,

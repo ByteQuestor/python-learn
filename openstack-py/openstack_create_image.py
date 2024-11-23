@@ -59,6 +59,7 @@ class glance_api:
 
     def update_glance(self, image_name: str, file_path=""):
         self.Url = self.Url + "/" + self.get_glance_id(image_name) + "/file"
+        # 这个header表示以二进制流上传文件
         self.headers['Content-Type'] = "application/octet-stream"
         status_code = requests.put(self.Url,data=open(file_path,'rb').read(),headers=self.headers).status_code
         return status_code
