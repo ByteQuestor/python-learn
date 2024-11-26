@@ -23,7 +23,7 @@
     }
 
     .folder::before {
-      content: '📁'; /* 文件夹图标 */
+      content: '📁'; /* 默认文件夹图标 */
       margin-right: 8px;
       font-size: 18px;
     }
@@ -36,7 +36,14 @@
     }
 
     .file::before {
-      content: '📄'; /* 文件图标 */
+      content: '📄'; /* 默认文件图标 */
+      margin-right: 8px;
+      font-size: 16px;
+    }
+
+    /* 特殊的ISO文件图标 */
+    .iso-file::before {
+      content: '💿'; /* ISO文件的特殊图标 */
       margin-right: 8px;
       font-size: 16px;
     }
@@ -80,8 +87,9 @@
 
     function createFileTreeElement(item) {
       const li = document.createElement('li');
+      const span = document.createElement('span');
+
       if (item.type === 'directory') {
-        const span = document.createElement('span');
         span.textContent = item.name;
         span.classList.add('folder');
         span.addEventListener('click', () => toggleFolder(span));
@@ -94,10 +102,13 @@
           });
           li.appendChild(ul);
         }
-      } else {
-        const span = document.createElement('span');
+      } else if (item.type === 'file') {
         span.textContent = item.name;
         span.classList.add('file');
+        // 如果是 ISO 文件，添加特殊的 ISO 图标类
+        if (item.name.endsWith('.iso')) {
+          span.classList.add('iso-file');
+        }
         li.appendChild(span);
       }
       return li;
@@ -109,18 +120,6 @@
       const ul = span.nextElementSibling; // 获取当前文件夹的子级 ul
       if (ul) {
         ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
-      }
-
-      // 如果当前文件夹被折叠，递归折叠所有子文件夹
-      if (!folder.classList.contains('open')) {
-        const subFolders = span.closest('li').querySelectorAll('ul > li > span');
-        subFolders.forEach(subFolder => {
-          const subUl = subFolder.nextElementSibling;
-          if (subUl) {
-            subUl.style.display = 'none'; // 折叠子文件夹
-            subFolder.classList.remove('open'); // 移除子文件夹的展开状态
-          }
-        });
       }
     }
 
