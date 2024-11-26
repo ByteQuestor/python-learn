@@ -1,0 +1,30 @@
+GET http://127.0.0.1:5000/sigin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+content-length: 0
+
+<> 2024-11-26T162946.200.html
+
+###
+
+GET http://127.0.0.1:5000/sigin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+content-length: 0
+
+<> 2024-11-26T162912.200.html
+
+###
+
+GET http://127.0.0.1:5000
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+content-length: 0
+
+<> 2024-11-26T162853.200.html
+
+###
+

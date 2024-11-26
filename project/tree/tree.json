@@ -1,0 +1,164 @@
+{
+    "dirs": [
+        "ansible",
+        "国赛软件包",
+        "容器云",
+        "水印",
+        "私有云"
+    ],
+    "files": [
+        "Python专题.md",
+        "容器云总文档.pdf"
+    ],
+    "ansible": {
+        "dirs": [],
+        "files": [
+            "ansible.tar.gz"
+        ]
+    },
+    "国赛软件包": {
+        "dirs": [
+            "软件包"
+        ],
+        "files": [
+            "ansible.tar.gz.txt",
+            "GPMall.tar.gz",
+            "国赛软件包.jpg"
+        ],
+        "软件包": {
+            "dirs": [
+                "GPMall"
+            ],
+            "files": [
+                "kafka_2.111-1.1.1.tgz.txt",
+                "Python-api.txt",
+                "zookeeper-3.4.14.tar.gz"
+            ],
+            "GPMall": {
+                "dirs": [
+                    "gpmall"
+                ],
+                "files": [],
+                "gpmall": {
+                    "dirs": [],
+                    "files": [
+                        "dist.tar",
+                        "gpmall-shopping-0.0.1-SNAPSHOT.jar",
+                        "gpmall-user-0.0.1-SNAPSHOT.jar",
+                        "gpmall.sql",
+                        "gpmall.tar",
+                        "kafka_2.11-1.1.1.tgz",
+                        "shopping-provider-0.0.1-SNAPSHOT.jar",
+                        "user-provider-0.0.1-SNAPSHOT.jar",
+                        "zookeeper-3.4.14.tar.gz"
+                    ]
+                }
+            }
+        }
+    },
+    "容器云": {
+        "dirs": [
+            "GPMall"
+        ],
+        "files": [
+            "chinaskills_cloud_paas.iso",
+            "chinaskills_cloud_paas_v2.0.1.iso",
+            "chinaskills_cloud_paas_v2.0.2.iso",
+            "chinaskills_cloud_paas_v2.1.iso",
+            "chinaskills_cloud_paas_v2.2.iso",
+            "chinaskills_cloud_paas_v3.0.iso",
+            "CICD-Runner.tar.gz",
+            "CICD_Offline.tar",
+            "demo-2048.tar.gz",
+            "DjangoBlog.tar.gz",
+            "ERP.tar.gz",
+            "GPMall.tar.gz",
+            "Hyperf.tar.gz",
+            "Jenkins-exam.tar.gz",
+            "jumpserver.tar.gz",
+            "k8s-api.zip",
+            "k8s_Python_Packages.tar.gz",
+            "KodExplorer.tar.gz",
+            "kubernetes_kubeedge.tar.gz",
+            "kubernetes_kubeedge_allinone.tar",
+            "mall-swarm.tar.gz",
+            "Monitor.tar.gz",
+            "owncloud-complete-20200731.zip",
+            "owncloudo_latest.tar",
+            "Pig.tar.gz"
+        ],
+        "GPMall": {
+            "dirs": [
+                "gpmall"
+            ],
+            "files": [],
+            "gpmall": {
+                "dirs": [],
+                "files": [
+                    "dist.tar",
+                    "gpmall-shopping-0.0.1-SNAPSHOT.jar",
+                    "gpmall-user-0.0.1-SNAPSHOT.jar",
+                    "gpmall.sql",
+                    "gpmall.tar",
+                    "kafka_2.11-1.1.1.tgz",
+                    "shopping-provider-0.0.1-SNAPSHOT.jar",
+                    "user-provider-0.0.1-SNAPSHOT.jar",
+                    "zookeeper-3.4.14.tar.gz"
+                ]
+            }
+        }
+    },
+    "水印": {
+        "dirs": [],
+        "files": [
+            "水印.png",
+            "水印.psd"
+        ]
+    },
+    "私有云": {
+        "dirs": [
+            "openstack-api",
+            "python模块"
+        ],
+        "files": [
+            "CentOS-7-x86_64-DVD-1804.iso",
+            "CentOS-7-x86_64-DVD-2009.iso",
+            "ceph-14.2.22.tar.gz",
+            "chinaskills_cloud_iaas.iso",
+            "chinaskills_cloud_iaas_v2.0.1.iso",
+            "chinaskills_cloud_iaas_v2.0.3.iso",
+            "cirros-0.3.4-x86_64-disk.img",
+            "coreos_production_pxe.vmlinuz",
+            "IaaS-OpenStack-x86-64_v1.0.iso",
+            "openEuler-22.03-LTS-x86_64-dvd.iso",
+            "openstack-api.zip",
+            "openstack-train.tar.gz",
+            "openstack_ansible_train.tar.gz",
+            "package_offline.tar.gz",
+            "redis.tar.gz"
+        ],
+        "openstack-api": {
+            "dirs": [],
+            "files": [
+                "certifi-2019.11.28-py2.py3-none-any.whl",
+                "chardet-3.0.4-py2.py3-none-any.whl",
+                "idna-2.8-py2.py3-none-any.whl",
+                "python-3.6.8.tar.gz",
+                "requests-2.24.0-py2.py3-none-any.whl",
+                "urllib3-1.25.11-py3-none-any.whl",
+                "安装指南.txt"
+            ]
+        },
+        "python模块": {
+            "dirs": [],
+            "files": [
+                "Python-api.tar.gz",
+                "python插件安装.txt",
+                "Python调用OpenStack api操作手册.docx",
+                "调用api创建云主机 (2).txt",
+                "调用api创建网络.txt",
+                "调用api创建镜像.txt"
+            ]
+        }
+    }
+}

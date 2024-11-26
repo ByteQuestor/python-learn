@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件树</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            cursor: pointer;
+        }
+
+        li ul {
+            display: none;
+        }
+
+        li.open > ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>文件树</h1>
+    <div id="file-tree"></div>
+
+    <script>
+        // 动态加载并渲染文件树
+        function loadFileTree() {
+            // 读取tree.json文件
+            fetch('../tree.json')  // 假设 tree.json 在根目录
+                .then(response => response.json())
+                .then(data => renderFileTree(data))
+                .catch(error => console.error('Error loading tree.json:', error));
+        }
+
+        // 渲染文件树
+        function renderFileTree(data) {
+            const treeContainer = document.getElementById('file-tree');
+            treeContainer.innerHTML = ''; // 清空之前的树
+
+            const rootNode = document.createElement('ul');
+            treeContainer.appendChild(rootNode);
+
+            function renderNode(node, parentElement) {
+                const li = document.createElement('li');
+                li.textContent = node.name;
+
+                // 如果有子目录或文件，递归渲染
+                if (node.dirs.length > 0 || node.files.length > 0) {
+                    const childrenContainer = document.createElement('ul');
+                    li.appendChild(childrenContainer);
+
+                    // 渲染子目录
+                    node.dirs.forEach(dir => {
+                        const dirNode = {
+                            name: dir,
+                            dirs: data[dir]?.dirs || [],
+                            files: data[dir]?.files || []
+                        };
+                        renderNode(dirNode, childrenContainer);
+                    });
+
+                    // 渲染文件
+                    node.files.forEach(file => {
+                        const fileNode = {
+                            name: file,
+                            dirs: [],
+                            files: []
+                        };
+                        renderNode(fileNode, childrenContainer);
+                    });
+                }
+
+                li.addEventListener('click', function(event) {
+                    if (li.classList.contains('open')) {
+                        li.classList.remove('open');
+                    } else {
+                        li.classList.add('open');
+                    }
+                    event.stopPropagation();
+                });
+
+                parentElement.appendChild(li);
+            }
+
+            // 根节点
+            const root = {
+                name: 'root',
+                dirs: Object.keys(data),
+                files: []
+            };
+
+            renderNode(root, rootNode);
+        }
+
+        // 页面加载时读取并渲染文件树
+        window.onload = loadFileTree;
+    </script>
+</body>
+</html>
