@@ -17,13 +17,14 @@ cli = kubernetes.client.AppsV1Api()
 def pz_apply_kube():
     with open("deployment.yaml") as f:
         body = yaml.safe_load(f)
+        print(f"{body['metadata']['name']}/created")
         cli.create_namespaced_deployment(namespace="default", body=body)
 
 
 def pz_delete_kube():
     with open("deployment.yaml") as f:
         body = yaml.safe_load(f)
-        print(body['metadata']['name'])
+        print(f"{body['metadata']['name']}/deleted")
         cli.delete_namespaced_deployment(namespace="default", name=body['metadata']['name'])
 
 
