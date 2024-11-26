@@ -17,11 +17,13 @@
             background-color: #f4f4f9;
             color: #333;
             padding: 20px;
+            margin: 0;
         }
 
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         ul {
@@ -32,10 +34,11 @@
 
         li {
             cursor: pointer;
-            padding: 5px;
+            padding: 10px;
             margin: 3px 0;
-            font-size: 14px;
+            font-size: 16px;
             transition: background-color 0.3s;
+            user-select: none; /* 防止选中文字 */
         }
 
         /* 文件夹样式 */
@@ -71,6 +74,50 @@
         li > ul {
             display: none;
             margin-left: 20px; /* 子节点增加缩进 */
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            li {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            /* 文件夹图标大小调整 */
+            .folder::before, .file::before {
+                font-size: 18px;
+            }
+
+            ul {
+                padding-left: 15px;
+            }
+
+            /* 让点击区域变大，便于触控 */
+            li {
+                padding-left: 25px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+        }
+
+        /* 进一步优化较小屏幕上的交互 */
+        @media (max-width: 480px) {
+            li {
+                font-size: 12px; /* 更小屏幕时减小字体 */
+                padding-left: 20px;
+            }
+
+            .folder::before, .file::before {
+                font-size: 16px; /* 图标也缩小 */
+            }
         }
     </style>
 </head>
