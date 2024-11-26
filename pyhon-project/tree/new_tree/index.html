@@ -92,6 +92,7 @@
       if (item.type === 'directory') {
         span.textContent = item.name;
         span.classList.add('folder');
+        // 单击事件，点击即展开/收起文件夹
         span.addEventListener('click', () => toggleFolder(span));
         li.appendChild(span);
 
@@ -116,10 +117,15 @@
 
     function toggleFolder(span) {
       const folder = span.closest('li').querySelector('.folder');
-      folder.classList.toggle('open');
       const ul = span.nextElementSibling; // 获取当前文件夹的子级 ul
-      if (ul) {
-        ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
+
+      // 如果文件夹未展开，则切换为展开状态，并变色
+      if (ul.style.display === 'none' || !ul.style.display) {
+        ul.style.display = 'block';
+        folder.classList.add('open');
+      } else {
+        ul.style.display = 'none';
+        folder.classList.remove('open');
       }
     }
 
