@@ -9,21 +9,22 @@ import kubernetes
 import yaml
 
 x = sys.argv
-# kubernetes.config.kube_config.load_kube_config("/root/.kube/config")
+kubernetes.config.kube_config.load_kube_config("/root/.kube/config")
 cli = kubernetes.client.AppsV1Api()
 
 
 # print(x)
 def pz_apply_kube():
-    with open("nginx.yaml") as f:
+    with open("deployment.yaml") as f:
         body = yaml.safe_load(f)
-        cli.create_namespaced_deployment(namespace="pzxy", body=body)
+        cli.create_namespaced_deployment(namespace="default", body=body)
 
 
 def pz_delete_kube():
-    with open("nginx.yaml") as f:
+    with open("deployment.yaml") as f:
         body = yaml.safe_load(f)
-        cli.create_namespaced_deployment(namespace="pzxy", body=body)
+        print(body['metadata']['name'])
+        cli.delete_namespaced_deployment(namespace="default", name=body['metadata']['name'])
 
 
 if (len(x) == 1):
