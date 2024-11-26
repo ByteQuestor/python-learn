@@ -1,143 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文件树</title>
-  <style>
-    /* 基本样式 */
-    ul {
-      list-style-type: none;
-      padding-left: 20px;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件树</title>
+    <style>
+        /* 基本样式 */
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+            margin: 0;
+        }
 
-    /* 文件夹样式 */
-    .folder {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      font-size: 16px;
-      color: #2c3e50;
-      font-weight: bold;
-    }
+        /* 文件夹样式 */
+        .folder {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
 
-    .folder::before {
-      content: '📁'; /* 默认文件夹图标 */
-      margin-right: 8px;
-      font-size: 18px;
-    }
+        .folder::before {
+            content: '📁'; /* 默认文件夹图标 */
+            margin-right: 8px;
+            font-size: 18px;
+        }
 
-    /* 文件样式 */
-    .file {
-      padding-left: 20px;
-      font-size: 14px;
-      color: #34495e;
-    }
+        /* 文件样式 */
+        .file {
+            padding-left: 20px;
+            font-size: 14px;
+            color: #34495e;
+        }
 
-    .file::before {
-      content: '📄'; /* 默认文件图标 */
-      margin-right: 8px;
-      font-size: 16px;
-    }
+        .file::before {
+            content: '📄'; /* 默认文件图标 */
+            margin-right: 8px;
+            font-size: 16px;
+        }
 
-    /* 特殊的ISO文件图标 */
-    .iso-file::before {
-      content: '💿'; /* ISO文件的特殊图标 */
-      margin-right: 8px;
-      font-size: 16px;
-    }
+        /* 特殊的ISO文件图标 */
+        .iso-file::before {
+            content: '💿'; /* ISO文件的特殊图标 */
+            margin-right: 8px;
+            font-size: 16px;
+        }
 
-    /* 展开文件夹时的效果 */
-    .folder + ul {
-      display: none;  /* 默认隐藏 */
-      margin-top: 5px;
-    }
+        /* 展开文件夹时的效果 */
+        .folder + ul {
+            display: none; /* 默认隐藏 */
+            margin-top: 5px;
+        }
 
-    .folder.open + ul {
-      display: block; /* 展开时显示 */
-    }
+        .folder.open + ul {
+            display: block; /* 展开时显示 */
+        }
 
-    /* 鼠标悬停时的效果 */
-    .folder:hover, .file:hover {
-      color: #2980b9;
-      cursor: pointer;
-    }
+        /* 鼠标悬停时的效果 */
+        .folder:hover, .file:hover {
+            color: #2980b9;
+            cursor: pointer;
+        }
 
-    /* 点击时增加背景色 */
-    .folder.open {
-      color: #16a085;
-    }
-  </style>
+        /* 点击时增加背景色 */
+        .folder.open {
+            color: #16a085;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="fileTreeContainer"></div>
+<div id="fileTreeContainer"></div>
 
-  <script>
+<script>
     // 从 server 加载 new_tree.json 文件
     fetch('new_tree.json')
-      .then(response => response.json())
-      .then(fileTree => {
-        renderFileTree(fileTree);
-      })
-      .catch(error => {
-        console.error('加载文件树失败:', error);
-      });
+        .then(response => response.json())
+        .then(fileTree => {
+            renderFileTree(fileTree);
+        })
+        .catch(error => {
+            console.error('加载文件树失败:', error);
+        });
 
     function createFileTreeElement(item) {
-      const li = document.createElement('li');
-      const span = document.createElement('span');
+        const li = document.createElement('li');
+        const span = document.createElement('span');
 
-      if (item.type === 'directory') {
-        span.textContent = item.name;
-        span.classList.add('folder');
-        // 单击事件，点击即展开/收起文件夹
-        span.addEventListener('click', () => toggleFolder(span));
-        li.appendChild(span);
+        if (item.type === 'directory') {
+            span.textContent = item.name;
+            span.classList.add('folder');
+            // 单击事件，点击即展开/收起文件夹
+            span.addEventListener('click', () => toggleFolder(span));
+            li.appendChild(span);
 
-        if (item.children) {
-          const ul = document.createElement('ul');
-          item.children.forEach(child => {
-            ul.appendChild(createFileTreeElement(child));
-          });
-          li.appendChild(ul);
+            if (item.children) {
+                const ul = document.createElement('ul');
+                item.children.forEach(child => {
+                    ul.appendChild(createFileTreeElement(child));
+                });
+                li.appendChild(ul);
+            }
+        } else if (item.type === 'file') {
+            span.textContent = item.name;
+            span.classList.add('file');
+            // 如果是 ISO 文件，添加特殊的 ISO 图标类
+            if (item.name.endsWith('.iso')) {
+                span.classList.add('iso-file');
+            }
+            li.appendChild(span);
         }
-      } else if (item.type === 'file') {
-        span.textContent = item.name;
-        span.classList.add('file');
-        // 如果是 ISO 文件，添加特殊的 ISO 图标类
-        if (item.name.endsWith('.iso')) {
-          span.classList.add('iso-file');
-        }
-        li.appendChild(span);
-      }
-      return li;
+        return li;
     }
 
     function toggleFolder(span) {
-      const folder = span.closest('li').querySelector('.folder');
-      const ul = span.nextElementSibling; // 获取当前文件夹的子级 ul
+        const folder = span.closest('li').querySelector('.folder');
+        const ul = span.nextElementSibling; // 获取当前文件夹的子级 ul
 
-      // 如果文件夹未展开，则切换为展开状态，并变色
-      if (ul.style.display === 'none' || !ul.style.display) {
-        ul.style.display = 'block';
-        folder.classList.add('open');
-      } else {
-        ul.style.display = 'none';
-        folder.classList.remove('open');
-      }
+        // 如果文件夹未展开，则切换为展开状态，并变色
+        if (ul.style.display === 'none' || !ul.style.display) {
+            ul.style.display = 'block';
+            folder.classList.add('open');
+        } else {
+            ul.style.display = 'none';
+            folder.classList.remove('open');
+        }
     }
 
     function renderFileTree(fileTree) {
-      const container = document.getElementById('fileTreeContainer');
-      const ul = document.createElement('ul');
-      fileTree.forEach(item => {
-        ul.appendChild(createFileTreeElement(item));
-      });
-      container.appendChild(ul);
+        const container = document.getElementById('fileTreeContainer');
+        const ul = document.createElement('ul');
+        fileTree.forEach(item => {
+            ul.appendChild(createFileTreeElement(item));
+        });
+        container.appendChild(ul);
     }
-  </script>
+</script>
 
 </body>
 </html>
