@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文件树</title>
+  <style>
+    /* 基本样式 */
+    ul {
+      list-style-type: none;
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    /* 文件夹样式 */
+    .folder {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    .folder::before {
+      content: '📁'; /* 文件夹图标 */
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    /* 文件样式 */
+    .file {
+      padding-left: 20px;
+      font-size: 14px;
+      color: #34495e;
+    }
+
+    .file::before {
+      content: '📄'; /* 文件图标 */
+      margin-right: 8px;
+      font-size: 16px;
+    }
+
+    /* 展开文件夹时的效果 */
+    .folder + ul {
+      display: none;  /* 默认隐藏 */
+      margin-top: 5px;
+    }
+
+    .folder.open + ul {
+      display: block; /* 展开时显示 */
+    }
+
+    /* 鼠标悬停时的效果 */
+    .folder:hover, .file:hover {
+      color: #2980b9;
+      cursor: pointer;
+    }
+
+    /* 点击时增加背景色 */
+    .folder.open {
+      color: #16a085;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="fileTreeContainer"></div>
+
+  <script>
+    // 从 server 加载 new_tree.json 文件
+    fetch('new_tree.json')
+      .then(response => response.json())
+      .then(fileTree => {
+        renderFileTree(fileTree);
+      })
+      .catch(error => {
+        console.error('加载文件树失败:', error);
+      });
+
+    function createFileTreeElement(item) {
+      const li = document.createElement('li');
+      if (item.type === 'directory') {
+        const span = document.createElement('span');
+        span.textContent = item.name;
+        span.classList.add('folder');
+        span.addEventListener('click', () => toggleFolder(span));
+        li.appendChild(span);
+
+        if (item.children) {
+          const ul = document.createElement('ul');
+          item.children.forEach(child => {
+            ul.appendChild(createFileTreeElement(child));
+          });
+          li.appendChild(ul);
+        }
+      } else {
+        const span = document.createElement('span');
+        span.textContent = item.name;
+        span.classList.add('file');
+        li.appendChild(span);
+      }
+      return li;
+    }
+
+    function toggleFolder(span) {
+      const folder = span.closest('li').querySelector('.folder');
+      folder.classList.toggle('open');
+      const ul = span.nextElementSibling; // 获取当前文件夹的子级 ul
+      if (ul) {
+        ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
+      }
+
+      // 如果当前文件夹被折叠，递归折叠所有子文件夹
+      if (!folder.classList.contains('open')) {
+        const subFolders = span.closest('li').querySelectorAll('ul > li > span');
+        subFolders.forEach(subFolder => {
+          const subUl = subFolder.nextElementSibling;
+          if (subUl) {
+            subUl.style.display = 'none'; // 折叠子文件夹
+            subFolder.classList.remove('open'); // 移除子文件夹的展开状态
+          }
+        });
+      }
+    }
+
+    function renderFileTree(fileTree) {
+      const container = document.getElementById('fileTreeContainer');
+      const ul = document.createElement('ul');
+      fileTree.forEach(item => {
+        ul.appendChild(createFileTreeElement(item));
+      });
+      container.appendChild(ul);
+    }
+  </script>
+
+</body>
+</html>

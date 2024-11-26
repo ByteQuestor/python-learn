@@ -1,0 +1,408 @@
+[
+  {
+    "name": "ansible",
+    "type": "directory",
+    "children": [
+      {
+        "name": "ansible.tar.gz",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "国赛软件包",
+    "type": "directory",
+    "children": [
+      {
+        "name": "ansible.tar.gz.txt",
+        "type": "file"
+      },
+      {
+        "name": "GPMall.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "国赛软件包.jpg",
+        "type": "file"
+      },
+      {
+        "name": "软件包",
+        "type": "directory",
+        "children": [
+          {
+            "name": "GPMall",
+            "type": "directory",
+            "children": [
+              {
+                "name": "gpmall",
+                "type": "directory",
+                "children": [
+                  {
+                    "name": "dist.tar",
+                    "type": "file"
+                  },
+                  {
+                    "name": "gpmall-shopping-0.0.1-SNAPSHOT.jar",
+                    "type": "file"
+                  },
+                  {
+                    "name": "gpmall-user-0.0.1-SNAPSHOT.jar",
+                    "type": "file"
+                  },
+                  {
+                    "name": "gpmall.sql",
+                    "type": "file"
+                  },
+                  {
+                    "name": "gpmall.tar",
+                    "type": "file"
+                  },
+                  {
+                    "name": "kafka_2.11-1.1.1.tgz",
+                    "type": "file"
+                  },
+                  {
+                    "name": "shopping-provider-0.0.1-SNAPSHOT.jar",
+                    "type": "file"
+                  },
+                  {
+                    "name": "user-provider-0.0.1-SNAPSHOT.jar",
+                    "type": "file"
+                  },
+                  {
+                    "name": "zookeeper-3.4.14.tar.gz",
+                    "type": "file"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "kafka_2.111-1.1.1.tgz.txt",
+            "type": "file"
+          },
+          {
+            "name": "Python-api.txt",
+            "type": "file"
+          },
+          {
+            "name": "zookeeper-3.4.14.tar.gz",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "容器云",
+    "type": "directory",
+    "children": [
+      {
+        "name": "chinaskills_cloud_paas.iso",
+        "type": "file"
+      },
+      {
+        "name": "chinaskills_cloud_paas_v2.0.1.iso",
+        "type": "file"
+      },
+      {
+        "name": "chinaskills_cloud_paas_v2.0.2.iso",
+        "type": "file"
+      },
+      {
+        "name": "chinaskills_cloud_paas_v2.1.iso",
+        "type": "file"
+      },
+      {
+        "name": "chinaskills_cloud_paas_v2.2.iso",
+        "type": "file"
+      },
+      {
+        "name": "chinaskills_cloud_paas_v3.0.iso",
+        "type": "file"
+      },
+      {
+        "name": "CICD-Runner.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "CICD_Offline.tar",
+        "type": "file"
+      },
+      {
+        "name": "demo-2048.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "DjangoBlog.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "ERP.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "GPMall",
+        "type": "directory",
+        "children": [
+          {
+            "name": "gpmall",
+            "type": "directory",
+            "children": [
+              {
+                "name": "dist.tar",
+                "type": "file"
+              },
+              {
+                "name": "gpmall-shopping-0.0.1-SNAPSHOT.jar",
+                "type": "file"
+              },
+              {
+                "name": "gpmall-user-0.0.1-SNAPSHOT.jar",
+                "type": "file"
+              },
+              {
+                "name": "gpmall.sql",
+                "type": "file"
+              },
+              {
+                "name": "gpmall.tar",
+                "type": "file"
+              },
+              {
+                "name": "kafka_2.11-1.1.1.tgz",
+                "type": "file"
+              },
+              {
+                "name": "shopping-provider-0.0.1-SNAPSHOT.jar",
+                "type": "file"
+              },
+              {
+                "name": "user-provider-0.0.1-SNAPSHOT.jar",
+                "type": "file"
+              },
+              {
+                "name": "zookeeper-3.4.14.tar.gz",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "GPMall.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "Hyperf.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "Jenkins-exam.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "jumpserver.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "k8s-api.zip",
+        "type": "file"
+      },
+      {
+        "name": "k8s_Python_Packages.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "KodExplorer.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "kubernetes_kubeedge.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "kubernetes_kubeedge_allinone.tar",
+        "type": "file"
+      },
+      {
+        "name": "mall-swarm.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "Monitor.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "owncloud-complete-20200731.zip",
+        "type": "file"
+      },
+      {
+        "name": "owncloudo_latest.tar",
+        "type": "file"
+      },
+      {
+        "name": "Pig.tar.gz",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "文档",
+    "type": "directory",
+    "children": [
+      {
+        "name": "Python专题.md",
+        "type": "file"
+      },
+      {
+        "name": "容器云总文档.pdf",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "水印",
+    "type": "directory",
+    "children": [
+      {
+        "name": "水印.png",
+        "type": "file"
+      },
+      {
+        "name": "水印.psd",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "私有云",
+    "type": "directory",
+    "children": [
+      {
+        "name": "CentOS-7-x86_64-DVD-1804.iso",
+        "type": "file"
+      },
+      {
+        "name": "CentOS-7-x86_64-DVD-2009.iso",
+        "type": "file"
+      },
+      {
+        "name": "ceph-14.2.22.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "chinaskills_cloud_iaas.iso",
+        "type": "file"
+      },
+      {
+        "name": "chinaskills_cloud_iaas_v2.0.1.iso",
+        "type": "file"
+      },
+      {
+        "name": "chinaskills_cloud_iaas_v2.0.3.iso",
+        "type": "file"
+      },
+      {
+        "name": "cirros-0.3.4-x86_64-disk.img",
+        "type": "file"
+      },
+      {
+        "name": "coreos_production_pxe.vmlinuz",
+        "type": "file"
+      },
+      {
+        "name": "IaaS-OpenStack-x86-64_v1.0.iso",
+        "type": "file"
+      },
+      {
+        "name": "openEuler-22.03-LTS-x86_64-dvd.iso",
+        "type": "file"
+      },
+      {
+        "name": "openstack-api",
+        "type": "directory",
+        "children": [
+          {
+            "name": "certifi-2019.11.28-py2.py3-none-any.whl",
+            "type": "file"
+          },
+          {
+            "name": "chardet-3.0.4-py2.py3-none-any.whl",
+            "type": "file"
+          },
+          {
+            "name": "idna-2.8-py2.py3-none-any.whl",
+            "type": "file"
+          },
+          {
+            "name": "python-3.6.8.tar.gz",
+            "type": "file"
+          },
+          {
+            "name": "requests-2.24.0-py2.py3-none-any.whl",
+            "type": "file"
+          },
+          {
+            "name": "urllib3-1.25.11-py3-none-any.whl",
+            "type": "file"
+          },
+          {
+            "name": "安装指南.txt",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "openstack-api.zip",
+        "type": "file"
+      },
+      {
+        "name": "openstack-train.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "openstack_ansible_train.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "package_offline.tar.gz",
+        "type": "file"
+      },
+      {
+        "name": "python模块",
+        "type": "directory",
+        "children": [
+          {
+            "name": "Python-api.tar.gz",
+            "type": "file"
+          },
+          {
+            "name": "python插件安装.txt",
+            "type": "file"
+          },
+          {
+            "name": "Python调用OpenStack api操作手册.docx",
+            "type": "file"
+          },
+          {
+            "name": "调用api创建云主机 (2).txt",
+            "type": "file"
+          },
+          {
+            "name": "调用api创建网络.txt",
+            "type": "file"
+          },
+          {
+            "name": "调用api创建镜像.txt",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "redis.tar.gz",
+        "type": "file"
+      }
+    ]
+  }
+]
