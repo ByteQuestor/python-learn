@@ -40,8 +40,7 @@
 
         /* 文件夹样式 */
         .folder {
-            display: flex;
-            align-items: center;
+            padding-left: 0; /* 清除不必要的缩进 */
         }
 
         .folder::before {
@@ -51,8 +50,7 @@
 
         /* 文件样式 */
         .file {
-            display: flex;
-            align-items: center;
+            padding-left: 0; /* 清除不必要的缩进 */
         }
 
         .file::before {
@@ -60,31 +58,19 @@
             margin-right: 8px;
         }
 
-        /* 展开/收起的样式 */
-        li.open > ul {
-            display: block;
-            animation: expand 0.3s ease-in-out;
-        }
-
-        li > ul {
-            display: none;
-        }
-
         /* 鼠标悬停时的效果 */
         li:hover {
             background-color: #e0e0e0;
         }
 
-        /* 展开/收起动画 */
-        @keyframes expand {
-            from {
-                opacity: 0;
-                height: 0;
-            }
-            to {
-                opacity: 1;
-                height: auto;
-            }
+        /* 展开/收起的样式 */
+        li.open > ul {
+            display: block;
+        }
+
+        li > ul {
+            display: none;
+            margin-left: 20px; /* 子节点增加缩进 */
         }
     </style>
 </head>
