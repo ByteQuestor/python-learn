@@ -1,17 +1,5 @@
 {
-    "dirs": [
-        "ansible",
-        "国赛软件包",
-        "容器云",
-        "水印",
-        "私有云"
-    ],
-    "files": [
-        "Python专题.md",
-        "容器云总文档.pdf"
-    ],
     "ansible": {
-        "dirs": [],
         "files": [
             "ansible.tar.gz"
         ]
@@ -38,9 +26,7 @@
                 "dirs": [
                     "gpmall"
                 ],
-                "files": [],
                 "gpmall": {
-                    "dirs": [],
                     "files": [
                         "dist.tar",
                         "gpmall-shopping-0.0.1-SNAPSHOT.jar",
@@ -91,9 +77,7 @@
             "dirs": [
                 "gpmall"
             ],
-            "files": [],
             "gpmall": {
-                "dirs": [],
                 "files": [
                     "dist.tar",
                     "gpmall-shopping-0.0.1-SNAPSHOT.jar",
@@ -108,8 +92,13 @@
             }
         }
     },
+    "文档": {
+        "files": [
+            "Python专题.md",
+            "容器云总文档.pdf"
+        ]
+    },
     "水印": {
-        "dirs": [],
         "files": [
             "水印.png",
             "水印.psd"
@@ -138,7 +127,6 @@
             "redis.tar.gz"
         ],
         "openstack-api": {
-            "dirs": [],
             "files": [
                 "certifi-2019.11.28-py2.py3-none-any.whl",
                 "chardet-3.0.4-py2.py3-none-any.whl",
@@ -150,7 +138,6 @@
             ]
         },
         "python模块": {
-            "dirs": [],
             "files": [
                 "Python-api.tar.gz",
                 "python插件安装.txt",
