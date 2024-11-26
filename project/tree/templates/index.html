@@ -5,21 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文件树</title>
     <style>
+        /* 样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
         ul {
             list-style-type: none;
             padding-left: 20px;
+            margin-top: 5px;
         }
 
         li {
             cursor: pointer;
+            padding: 5px;
+            margin: 3px 0;
+            font-size: 14px;
+            transition: background-color 0.3s;
         }
 
-        li ul {
+        /* 文件夹样式 */
+        .folder {
+            display: flex;
+            align-items: center;
+        }
+
+        .folder::before {
+            content: '📁'; /* 文件夹图标 */
+            margin-right: 8px;
+        }
+
+        /* 文件样式 */
+        .file {
+            display: flex;
+            align-items: center;
+        }
+
+        .file::before {
+            content: '📄'; /* 文件图标 */
+            margin-right: 8px;
+        }
+
+        /* 展开/收起的样式 */
+        li.open > ul {
+            display: block;
+            animation: expand 0.3s ease-in-out;
+        }
+
+        li > ul {
             display: none;
         }
 
-        li.open > ul {
-            display: block;
+        /* 鼠标悬停时的效果 */
+        li:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* 展开/收起动画 */
+        @keyframes expand {
+            from {
+                opacity: 0;
+                height: 0;
+            }
+            to {
+                opacity: 1;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -47,6 +112,14 @@
 
             function renderNode(node, parentElement) {
                 const li = document.createElement('li');
+
+                // 为文件夹或文件添加不同的类
+                if (node.dirs.length > 0 || node.files.length > 0) {
+                    li.classList.add('folder');
+                } else {
+                    li.classList.add('file');
+                }
+
                 li.textContent = node.name;
 
                 // 如果有子目录或文件，递归渲染
