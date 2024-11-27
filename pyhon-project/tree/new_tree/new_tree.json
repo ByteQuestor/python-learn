@@ -262,20 +262,6 @@
     ]
   },
   {
-    "name": "水印",
-    "type": "directory",
-    "children": [
-      {
-        "name": "水印.png",
-        "type": "file"
-      },
-      {
-        "name": "水印.psd",
-        "type": "file"
-      }
-    ]
-  },
-  {
     "name": "私有云",
     "type": "directory",
     "children": [
@@ -401,6 +387,20 @@
       },
       {
         "name": "redis.tar.gz",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "视频教程",
+    "type": "directory",
+    "children": [
+      {
+        "name": "2024-10-28关于heat简单操作.zip",
+        "type": "file"
+      },
+      {
+        "name": "2024-11-27搓yaml的快捷方法Deployment.zip",
         "type": "file"
       }
     ]
