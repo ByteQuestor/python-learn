@@ -12,3 +12,7 @@ pip install "uvicorn[standard]"
 ```shell
 pip3 install docker
 ```
+
+# 基本使用
+## 测试文档（端口可改）
+`http://127.0.0.1/docs`
